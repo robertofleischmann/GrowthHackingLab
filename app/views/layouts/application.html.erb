@@ -26,7 +26,7 @@
 		      <span class="icon-bar"></span>
 		      <span class="icon-bar"></span>
 		    </button>
-		    <a class="navbar-brand" href="#">Growth Hacking Lab</a>
+		    <a class="navbar-brand" href="<%= root_path %>">Growth Hacking Lab</a>
 		  </div>
 
 		  <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,7 +41,12 @@
 		    		<% if current_user.nil? %>
 		    			<a href="/users/sign_in">Log In</a>
 						<% else %>
-							<a data-method="delete" href="/users/sign_out" rel="nofollow">Log Out</a>
+							<li>
+								<a> Hola <%= current_user.email %> </a>
+							</li>
+							<li>
+								<a data-method="delete" href="/users/sign_out" rel="nofollow">Log Out</a>
+							</li>
 						<% end %>
 					</li>
 		    </ul>
