@@ -25,6 +25,7 @@ class HacksController < ApplicationController
   # POST /hacks.json
   def create
     @hack = Hack.new(hack_params)
+    @hack.user = current_user
 
     respond_to do |format|
       if @hack.save

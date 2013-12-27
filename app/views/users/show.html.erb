@@ -1,0 +1,20 @@
+<div class="container">
+
+<%= link_to 'New Hack', new_hack_path, :class => 'btn btn-primary', :style => 'color:white' %>
+<br/>
+
+  <h1>Listing hacks</h1>
+
+  <% @hacks.each do |hack| %>
+    <div class="col-md-3">
+      <div class="thumbnail">
+        <%= link_to(image_tag(hack.photo, :class => 'img-responsive'), hack) %>
+        <%= hack.description %>
+        <br/>
+        <%= link_to 'Editar', edit_hack_path(hack), :class => 'btn btn-primary', :style => 'color:white' %>
+        <%= link_to 'Borrar', hack, :class => 'btn btn-danger', :style => 'color:white', method: :delete, data: { confirm: 'Estás seguro?' } %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
