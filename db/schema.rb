@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131227182403) do
+ActiveRecord::Schema.define(version: 20131230022913) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -54,6 +54,20 @@ ActiveRecord::Schema.define(version: 20131227182403) do
     t.integer  "user_id"
   end
 
+  create_table "uploads", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "n"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_types", force: true do |t|
+    t.string   "name"
+    t.integer  "uploads_needed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -67,6 +81,7 @@ ActiveRecord::Schema.define(version: 20131227182403) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_type_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
